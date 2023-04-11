@@ -157,55 +157,16 @@ return(
             align-items: center;color: #516277;flex: none;order: 1;
             align-self: stretch;flex-grow: 0;
              }
-div1{
-    
-width: 416px;
-height: 20px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 140%;
-/* identical to box height, or 20px */
-
-
-/* Expanter Blue */
-
-color: #4769F9;
-
-
-/* Inside auto layout */
-
-flex: none;
-order: 2;
-align-self: stretch;
-flex-grow: 0;
-div2{
-    width: 105px;
-height: 19px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 19px;
-/* identical to box height */
-
-display: flex;
-align-items: center;
-
-/* Dark Gray */
-
-color: #2B353F;
-
-
-/* Inside auto layout */
-
-flex: none;
-order: 1;
-flex-grow: 0;
-}
+           div1{
+            width: 416px;height: 20px;font-family: 'Inter';font-style: normal;
+            font-weight: 500;font-size: 14px;line-height: 140%;color: #4769F9;
+            flex: none;order: 2;align-self: stretch;flex-grow: 0;
+          
+           div2{
+             width: 105px;height: 19px;font-family: 'Roboto';font-style: normal;
+             font-weight: 400;font-size: 16px;line-height: 19px;display: flex;
+             align-items: center;color: #2B353F;flex: none;order: 1;flex-grow: 0;
+              }
 cover{
   background-color:white;
   width:30em;
