@@ -17,7 +17,8 @@ import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import Login from './pages/Login/Login';
 import Create from './pages/Create/Create';
-import SignUp from './pages/SignUp/SignUp';
+
+import Sign from './pages/Sign/Sign';
 export function App() {
   const { i18n } = useTranslation();
   return (
@@ -35,9 +36,11 @@ export function App() {
        
         <Route path="/login" component={Login}/>
         <Route path="/create" component={Create}/>
-        <Route path="/signup" component={SignUp}/>
+        
+        <Route path="/sign" component={Sign}/>
         <Route component={NotFoundPage} />
       </Switch>
+   
       <GlobalStyle />
     </BrowserRouter>
   );
