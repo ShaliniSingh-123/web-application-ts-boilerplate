@@ -59,6 +59,7 @@ flex-grow: 0;
                 gap: 24px;    display: flex;     flex-direction: row;
                }
 
-             
+  
+    }         
 `
 export default GlobalStyle

@@ -6,13 +6,40 @@ import {useState} from 'react'
 import styled from 'styled-components'
 import IMAGES from 'images/index.js';
 import GlobalStyles from  'styles/component/Global'
-
-function Login(){
-  const[user,setUser]=useState("");
-  const[password,setPassword]=useState("");
-  const[userErr,setUserErr]=useState(false);
-  const[passErr,setPassErr]=useState(false);
+import axios from "axios";
+import {setUserSession} from 'app/pages/Common';
+const Login=(props)=>{
   
+  const[error,setError]=useState(null);
+  const[password,setPassword]=useState('');
+  const[email,setEmail]=useState('');
+ const[loading,setLoading]=useState(false);
+
+  const handleLogin=()=> {
+    setError(null);
+    setLoading(true);
+   axios.post("http://15.206.121.23:7077/v1/auth/email/login",{
+      email:email,
+      password: password
+    }).then(response=>{
+      setLoading(false);
+      setUserSession(response.data.token, response.data.user)
+      props.history.push('/sign');
+    }).catch(function(error){
+      setLoading(false);
+      if (error.response.status === 401 ||error.response.status === 400) {
+        
+        setError(error.response.data.message);
+       
+      } else if (error.request) {
+       
+        console.log(error.request);
+      } else {
+        
+       setError("Something went wrong. Please try again later.");
+}
+    });
+  }
   const Button = styled.button`
   display: flex;  flex-direction: row;  justify-content: center;
   align-items: center;  padding: 12px 24px;  gap: 10px;  width: 186px;
@@ -20,42 +47,6 @@ function Login(){
   border-color:#7F79F9;  flex: none;  order: 0;   flex-grow: 0;
 `;
 
-function loginHandle(e)
-{
-  if(user.length<5 || password.length<5)
-    {
-      alert("type correct value")
-    }
-  else
-    {
-      alert("all good :)")
-    }
-  e.preventDefault()
-}
-function userHandler(e){
-let item =e.target.value;
-if(item.length<5)
-{
-  setUserErr(true)
-}
-else
-{
- setUserErr(false)
-}
-  setUser(item)
- }
-function passwordHandler(e){
-  let item=e.target.value;
-  if(item.length<5)
-  {
-    setPassErr(true)
-  }
-  else
-  {
-    setPassErr(false)
-  }
-  setPassword(item)
-}
 
 return(
 
@@ -84,44 +75,38 @@ return(
    
       <div> Fill out the form</div> <br/><br/>
        
-    <form onSubmit={loginHandle}>
+   
     
-    <label htmlFor="Email">Work email</label><br/>
-      <input type="text" onChange={userHandler} /><br/>
-       {userErr?<span
-         style={{
-          fontWeight: "bold",
-          color: "red"
-        }}> Invalid UserId</span>:""}
-     
+    
+   <label htmlFor="Email">Work email</label><br/>
+   <input type="text" value={email} 
+    onChange={(e)=>setEmail(e.target.value)}className="form-control"/><br/>
 
-      <label htmlFor="Password">Password</label><br/>
-      <input type="password"
-      onChange={passwordHandler}/><br/>
-      {passErr?<span
-        style={{
-          fontWeight: "bold",
-          color: "red"
-        }}>Invalid Password</span>:""}
-     
+    <label htmlFor="Password">Password</label><br/>
+    <input type="text" value={password} 
+    onChange={(e)=>setPassword(e.target.value)}className="form-control"/><br/>
+
+{error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
+
       <div1>Forgot Password?</div1><br/><br/><br/>
       
       <label>
       <input type="checkbox" value="lsRememberMe" id="rememberMe"
       style={{background: "#DADADA",width: "18px",
       height: "18px" ,display: "inline-block",lineheight:"19px"}}/>&nbsp;&nbsp;
-      Remember me</label>
-      <Button onClick="submit">Create account now</Button><br/><br/><br/><br/>
-     
-     </form>
-     
-     </Space>
+      Remember me</label><br/>
+      
+      <Button value={loading ?"Loading...":"Create account now"}
+      disabled={loading}
+      onClick={handleLogin} >Create account now</Button><br/><br/><br/><br/>
+    </Space>
      <hr
       />
       <a>I don't have an Expanter account?</a>
       <button onClick="submit" style={{float: "right",color:"#7F79F9", margin: "0 30px",
       height:"17px",  justifycontent: "center", margintop:"30px",
       padding: "14px 20px",alignitems: "center",lineheight:"17px"}}>Create account</button>
+
      </div2>
      
      </h5>
