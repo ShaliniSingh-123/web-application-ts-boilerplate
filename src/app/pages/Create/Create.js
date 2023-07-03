@@ -8,7 +8,6 @@ import GlobalStyles from  'styles/component/Global'
 import {useHistory} from "react-router-dom"
 function Create(){
   const [firstname,setFirstname]=useState("");
-  
   const [lastname,setLastname]=useState("");
   const [businessname,setBusinessname]=useState("");
   const [email,setEmail]=useState("");
@@ -108,7 +107,7 @@ return(
       <input type="password"  value={password} 
     onChange={(e)=>setPassword(e.target.value)} className="form-control"/><br/>
      
-      <br/>
+      
       <Button onClick={SignUp}>Create account now</Button><br/><br/>
     
       </Space>

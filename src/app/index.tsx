@@ -17,8 +17,10 @@ import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 import Login from './pages/Login/Login';
 import Create from './pages/Create/Create';
-
 import Sign from './pages/Sign/Sign';
+import Profile from './pages/Profile/Profile';
+import Business from './pages/Business/Business';
+import ViewProfile from './pages/ViewProfile/ViewProfile';
 export function App() {
   const { i18n } = useTranslation();
   return (
@@ -36,8 +38,10 @@ export function App() {
        
         <Route path="/login" component={Login}/>
         <Route path="/create" component={Create}/>
-        
         <Route path="/sign" component={Sign}/>
+        <Route path="/profile" component={Profile}/>
+        <Route path="/business" component={Business}/>
+        <Route path="/viewprofile" component={ViewProfile}/>
         <Route component={NotFoundPage} />
       </Switch>
    

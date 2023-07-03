@@ -127,3 +127,23 @@ flex-grow: 0;
 margin-top:-25px;
 margin-left:96px;
 `
+export const Frame = styled.span`
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+left:64px;
+top:116px;
+width: 368px;
+height: 80px`
+export const Ellipse = styled.div`
+position: absolute;
+width: 964px;
+height: 964px;
+left: -487px;
+top: -425px;
+
+background: linear-gradient(219deg, rgba(219, 147, 255, 0.4) 35.24%, #4769F9 76.29%);
+mix-blend-mode: normal;
+`

@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import {Link} from "react-router-dom"
 import {Space,Left,Icon} from 'styles/component/Sign.styled'
@@ -24,7 +23,9 @@ const Login=(props)=>{
     }).then(response=>{
       setLoading(false);
       setUserSession(response.data.token, response.data.user)
-      props.history.push('/sign');
+      sessionStorage.setItem('access','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODg0YzFhOTVmNmI4ZjUzNGRmMzllZSIsInR5cGUiOiJ1c2VyIiwidXNlclJvbGUiOiJzZXJ2aWNlUHJvdmlkZXIiLCJ0aW1lIjoxNjg4MDE4NzU4OTE0LCJpYXQiOjE2ODgwMTg3NTh9.wJG0Z5t85FoLuJ4lpGmXxtTtFrzdUybNW8cHq23dGQM');
+  
+      props.history.push('/profile');
     }).catch(function(error){
       setLoading(false);
       if (error.response.status === 401 ||error.response.status === 400) {
@@ -38,8 +39,10 @@ const Login=(props)=>{
         
        setError("Something went wrong. Please try again later.");
 }
-    });
+  
+});
   }
+ 
   const Button = styled.button`
   display: flex;  flex-direction: row;  justify-content: center;
   align-items: center;  padding: 12px 24px;  gap: 10px;  width: 186px;
@@ -70,7 +73,7 @@ return(
      <Link to="/">Back to Home</Link>
      <GlobalStyles/>
       <p>Log in to<br/>
-         your Expanter 
+       your Expanter 
          account</p><br/><br/><br/>
    
       <div> Fill out the form</div> <br/><br/>

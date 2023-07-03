@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Container,Nav,Img,Img1,Icon,Link} from 'styles/component/Sign.styled'
 import {Button,Button1} from 'styles/component/Button.styled'
 import IMAGES from 'images/index.js';
@@ -9,8 +8,7 @@ function Sign(){
     return(
        
        <body>
-          
-           <h1 >
+          <h1 >
         
               <div1 style= {{background: "linear-gradient(180deg, #7F79F9 0%, #645DEE 100%)"}}>
                 
@@ -34,8 +32,8 @@ function Sign(){
                        management, automated in one digital <br/>
                        workplace</p><br/><br/>
                    
-                  <Button onClick="submit"> Sign up</Button>
-                  <Button1 onClick="submit" bg="#7F79F9" color="#FFFFFF"  border="2px solid #FFFFFF">Log in</Button1>
+            <Button onClick="submit"> Sign up</Button>
+            <Button1 onClick="submit" bg="#7F79F9" color="#FFFFFF"  border="2px solid #FFFFFF">Log in</Button1>
                   </Container>
                   </div1>
               
@@ -66,9 +64,7 @@ function Sign(){
                       </Nav>
                   </div>
                 </h1>
-          
-        
-        <style>
+          <style>
         {`
        
            h1{

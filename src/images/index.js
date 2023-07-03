@@ -7,8 +7,8 @@ const IMAGES={
     imgIcon1:require('./Icon1.png'),
     imgVector:require('./Vector.png'),
     imgVector1:require('./Vector1.png'),
-    imgExpanter:require('./Expanter.png')
-    
+    imgExpanter:require('./Expanter.png'),
+    imgEllipse:require('./Ellipse.png')
 
 }
 export default IMAGES;
